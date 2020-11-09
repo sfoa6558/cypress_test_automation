@@ -1,0 +1,14 @@
+{
+
+    "baseUrl": "http://performance.dev.paylocity.com",
+    "env": {
+        "username": "teamcanaryscans",
+        "password": "BlueYellowRed2020!",
+        "dev":      "performance.dev.paylocity.com",
+        "api":      "performance.dev.paylocity.com/LoadTests/api/results"
+      }
+    
+        
+   
+}
+

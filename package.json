@@ -1,0 +1,45 @@
+{
+  "name": "cypress-tutorial-build-todo-starter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack",
+    "watch": "webpack --watch",
+    "serve": "json-server db.json",
+    "dev": "concurrently \"npm run watch\" \"npm run serve\"",
+    "cypress": "cypress open",
+    "ntlm-proxy": "start /min \"ntlm-proxy\" cmd /c node_modules\\.bin\\ntlm-proxy",
+    "cypress-ntlm": "npm run ntlm-proxy && (cypress-ntlm open & ntlm-proxy-exit)"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/runtime": "^7.11.2",
+    "axios": "0.19.2",
+    "concurrently": "3.6.1",
+    "json-server": "0.16.1",
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
+    "react-native": "^0.55.0",
+    "react-router-dom": "4.2.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.11.6",
+    "@babel/preset-env": "^7.11.5",
+    "@babel/preset-react": "^7.10.4",
+    "babel-core": "6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-plugin-transform-object-rest-spread": "6.26.0",
+    "babel-preset-env": "1.7.0",
+    "babel-preset-react": "6.24.1",
+    "css-loader": "0.28.11",
+    "cypress": "^5.0.0",
+    "cypress-ntlm-auth": "^2.3.0",
+    "html-webpack-plugin": "2.30.1",
+    "style-loader": "0.19.1",
+    "webpack": "^3.12.0",
+    "webpack-cli": "^3.3.12"
+  }
+}
