@@ -12,18 +12,5 @@ Cypress.Commands.add("login", (url) => {
   
   })
 
-  Cypress.Commands.add('checkpayload', (resp) => {
-    resp.body.forEach((body,index) =>
-    {
-      
-      expect(resp.body[index]).to.have.property('id');
-      expect(resp.body[index]).to.have.property('loadTestId');
-      expect(resp.body[index]).to.have.property('loadTestName');
-      expect(resp.body[index]).to.have.property('result');
-      expect(resp.body[index]).to.have.property('environment');
-      expect(resp.body[index]).to.have.property('status');
-      
-      
-    })
-  })
+  
     
