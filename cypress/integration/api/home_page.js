@@ -31,7 +31,7 @@ describe('Results', () => {
             })
            
             //cy.checkpayload(resp);
-            //because there are so many results, only looping through first 5 records. 
+            //because there are so many results, only verifying first 5 records. 
             for(let i = 0;  i<5; i++)
             { 
               expect(resp.body[i]).to.have.property('id');
