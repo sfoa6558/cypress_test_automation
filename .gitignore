@@ -2,9 +2,9 @@ node_modules
 temp
 QA
 .idea
-*.mp4
+
 *.png
-reports
+
 
 logs
 *.log
