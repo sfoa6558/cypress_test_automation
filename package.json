@@ -10,7 +10,8 @@
     "dev": "concurrently \"npm run watch\" \"npm run serve\"",
     "cypress": "cypress open",
     "ntlm-proxy": "start /min \"ntlm-proxy\" cmd /c node_modules\\.bin\\ntlm-proxy",
-    "cypress-ntlm": "npm run ntlm-proxy && (cypress-ntlm open & ntlm-proxy-exit)"
+    "cypress-ntlm": "npm run ntlm-proxy && (cypress-ntlm open & ntlm-proxy-exit)",
+    "cy:run": "cypress run"
   },
   "keywords": [],
   "author": "",
@@ -42,4 +43,6 @@
     "webpack": "^3.12.0",
     "webpack-cli": "^3.3.12"
   }
+
+
 }

@@ -1,12 +1,13 @@
-describe('Environments', () => {
+describe('Metrics', () => {
+     
+ it('gets load metric', () => {   
    beforeEach(() => {
       cy.ntlm([Cypress.env('dev')], Cypress.env('username'), Cypress.env('password'));
      
   })  
- it('gets load test environments', () => {   
     cy.request({
        method:'GET',
-       url:'/LoadTests/api/environments',
+       url:'/LoadTests/api/loadmetrics',
        headers: {
           'Accept': 'application/json, text/plain, */*',
           'Accept-Encoding': 'gzip,deflate',
@@ -16,7 +17,7 @@ describe('Environments', () => {
           'Host': 'performance.dev.paylocity.com',
           'Referer': 'http://performance.dev.paylocity.com/LoadTests/Spa',
           'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36'
-        
+         
  
        }
     })
@@ -24,26 +25,28 @@ describe('Environments', () => {
          expect(resp.status).to.eq(200)
          expect(resp.headers).to.include({
             'cache-control': 'no-cache',
-            expires: '-1',
-            'content-type': 'application/json; charset=utf-8'
-          
+             expires: '-1',
+            'content-type': 'application/json; charset=utf-8',
+           
           })
-       resp.body.forEach((body,index) =>
-       {
          
-         expect(resp.body[index]).to.have.property('environmentId');
-         expect(resp.body[index]).to.have.property('type');
-         expect(resp.body[index]).to.have.property('name');
-         expect(resp.body[index]).to.have.property('gitRepoType');
-         expect(resp.body[index]).to.have.property('protocol');
-         expect(resp.body[index]).to.have.property('host');
+          resp.body.forEach((body,index) =>
+          {
+            
+            expect(resp.body[index]).to.have.property('loadMetricId');
+            expect(resp.body[index]).to.have.property('name');
+            expect(resp.body[index]).to.have.property('content');
+            expect(resp.body[index]).to.have.property('size');
+            expect(resp.body[index]).to.have.property('order');
+            expect(resp.body[index]).to.have.property('showOnLandingPage');
+           
+            
+          })
         
          
-       })
-        
       })
-    
    })
  
+
  
  })

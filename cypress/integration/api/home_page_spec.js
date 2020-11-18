@@ -24,10 +24,10 @@ describe('Results', () => {
         .then((resp) => {
            expect(resp.status).to.eq(200)
            expect(resp.headers).to.include({
-              'cache-control': 'no-cache',
-              expires: '-1',
-              'content-type': 'application/json; charset=utf-8',
-              'content-encoding': 'gzip',
+            'cache-control': 'no-cache',
+             expires: '-1',
+            'content-type': 'application/json; charset=utf-8'
+           
             })
            
             //cy.checkpayload(resp);
