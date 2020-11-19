@@ -12,7 +12,6 @@
       "defaultCommandTimeout": 120000,
       "pageLoadTimeout": 120000,
       "timeout": 120000,
-      "projectId": "9ysh8a",
       "reporter": "cypress-multi-reporters",
       "reporterOptions": {
         "reporterEnabled": "mocha-junit-reporters, mochawesome",
