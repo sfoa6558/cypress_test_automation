@@ -1,11 +1,13 @@
 {
 
-    "baseUrl": "http://performance.dev.paylocity.com",
+    "baseUrl": "https://dev-loadtest-01.paylocity.com/stormbreaker",
     "env": {
         "username": "teamcanaryscans",
         "password": "BlueYellowRed2020!",
         "dev":      "performance.dev.paylocity.com",
-        "api":      "performance.dev.paylocity.com/LoadTests/api/results"
+        "api":      "performance.dev.paylocity.com/LoadTests/api/results",
+        "stormbreaker-local": "localhost:5001",
+        "stormbreaker-dev": "dev-loadtest-01.paylocity.com"
       },
       "retries": 3,
       "responseTimeout": 120000,
