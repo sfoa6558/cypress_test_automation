@@ -7,7 +7,7 @@ describe('Metrics', () => {
   })  
     cy.request({
        method:'GET',
-       url:'/LoadTests/api/loadmetrics',
+       url:'http://performance.dev.paylocity.com/LoadTests/api/loadmetrics',
        headers: {
           'Accept': 'application/json, text/plain, */*',
           'Accept-Encoding': 'gzip,deflate',

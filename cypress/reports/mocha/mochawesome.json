@@ -1,0 +1,133 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 0,
+    "pending": 0,
+    "failures": 2,
+    "start": "2020-12-03T19:18:06.452Z",
+    "end": "2020-12-03T19:18:10.983Z",
+    "duration": 4531,
+    "testsRegistered": 2,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "5f15d2bd-fbe6-4540-960d-93bab4052fee",
+      "title": "",
+      "fullFile": "cypress\\integration\\api\\home_page_spec.js",
+      "file": "cypress\\integration\\api\\home_page_spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "8417e92d-c93d-4bd6-a614-fcf004bb3347",
+          "title": "Results",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "gets results for the home page",
+              "fullTitle": "Results gets results for the home page",
+              "timedOut": null,
+              "duration": 548,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  method: 'GET',\n  url: '/LoadTests/api/results',\n  headers: {\n    'Accept': 'application/json, text/plain, */*',\n    'Accept-Encoding': 'gzip,deflate',\n    'Accept-Language': 'en-US,en;q=0.9',\n    'Connection': 'keep-alive',\n    'Cookie': '_ga=GA1.2.1333942138.1597685257; optimizelyEndUserId=oeu1598406659852r0.8232592745782337; _fbp=fb.1.1598406660841.827915254; __volmet_last_visit=10%2f19%2f2020+10%3a05%3a21+PM; _hjid=a2290c23-8ed9-4c8c-a8a8-d9afe8d9435c; _uetvid=2c82c0d0168311ebb9eb5b5a27f3e4db; intercom-id-radn7w0h=fe24cf8e-e08e-482b-8724-b1a216992ef8',\n    'Host': 'performance.dev.paylocity.com',\n    'Referer': 'http://performance.dev.paylocity.com/LoadTests/Spa',\n    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36'\n  }\n}).then(function (resp) {\n  expect(resp.status).to.eq(200);\n  expect(resp.headers).to.include({\n    'cache-control': 'no-cache',\n    expires: '-1',\n    'content-type': 'application/json; charset=utf-8'\n  }); //cy.checkpayload(resp);\n  //because there are so many results, only verifying first 5 records. \n  for (var i = 0; i < 5; i++) {\n    expect(resp.body[i]).to.have.property('id');\n    expect(resp.body[i]).to.have.property('loadTestId');\n    expect(resp.body[i]).to.have.property('loadTestName');\n    expect(resp.body[i]).to.have.property('result');\n    expect(resp.body[i]).to.have.property('environment');\n    expect(resp.body[i]).to.have.property('status');\n    expect(resp.body[i]).to.have.property('executionEnvironmentId');\n    expect(resp.body[i]).to.have.property('slaResultScore');\n    expect(resp.body[i]).to.have.property('status');\n    expect(resp.body[i]).to.have.property('startTime');\n    expect(resp.body[i]).to.have.property('endTime');\n    expect(resp.body[i]).to.have.property('executionLogId');\n    expect(resp.body[i]).to.have.property('hasResults');\n    expect(resp.body[i]).to.have.property('warmupTime');\n    expect(resp.body[i]).to.have.property('coolDownTime');\n    expect(resp.body[i]).to.have.property('runDuration');\n    expect(resp.body[i]).to.have.property('testIterations');\n    expect(resp.body[i]).to.have.property('includesCDWU');\n    expect(resp.body[i]).to.have.property('isBaseline');\n    expect(resp.body[i]).to.have.property('purposeComment');\n    expect(resp.body[i]).to.have.property('resultComment');\n    expect(resp.body[i]).to.have.property('actualDuration');\n    expect(resp.body[i]).to.have.property('loadTestFullName');\n    expect(resp.body[i]).to.have.property('scaleFactor');\n  }\n});",
+              "err": {
+                "message": "CypressError: `cy.request()` failed on:\n\nhttps://dev-loadtest-01.paylocity.com/stormbreaker/LoadTests/api/results\n\nThe response we received from your web server was:\n\n  > 401: Unauthorized\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: GET\nURL: https://dev-loadtest-01.paylocity.com/stormbreaker/LoadTests/api/results\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"Accept-Encoding\": \"gzip,deflate\",\n  \"Accept-Language\": \"en-US,en;q=0.9\",\n  \"Cookie\": \"_ga=GA1.2.1333942138.1597685257; optimizelyEndUserId=oeu1598406659852r0.8232592745782337; _fbp=fb.1.1598406660841.827915254; __volmet_last_visit=10%2f19%2f2020+10%3a05%3a21+PM; _hjid=a2290c23-8ed9-4c8c-a8a8-d9afe8d9435c; _uetvid=2c82c0d0168311ebb9eb5b5a27f3e4db; intercom-id-radn7w0h=fe24cf8e-e08e-482b-8724-b1a216992ef8\",\n  \"Host\": \"performance.dev.paylocity.com\",\n  \"Referer\": \"http://performance.dev.paylocity.com/LoadTests/Spa\",\n  \"User-Agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36\",\n  \"accept\": \"application/json, text/plain, */*\"\n}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 401 - Unauthorized\nHeaders: {\n  \"server\": \"Kestrel\",\n  \"www-authenticate\": \"NTLM, Negotiate\",\n  \"x-powered-by\": \"ASP.NET\",\n  \"date\": \"Thu, 03 Dec 2020 19:18:07 GMT\",\n  \"content-length\": \"0\"\n}\nBody: \n\n\nhttps://on.cypress.io/request",
+                "estack": "CypressError: `cy.request()` failed on:\n\nhttps://dev-loadtest-01.paylocity.com/stormbreaker/LoadTests/api/results\n\nThe response we received from your web server was:\n\n  > 401: Unauthorized\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: GET\nURL: https://dev-loadtest-01.paylocity.com/stormbreaker/LoadTests/api/results\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"Accept-Encoding\": \"gzip,deflate\",\n  \"Accept-Language\": \"en-US,en;q=0.9\",\n  \"Cookie\": \"_ga=GA1.2.1333942138.1597685257; optimizelyEndUserId=oeu1598406659852r0.8232592745782337; _fbp=fb.1.1598406660841.827915254; __volmet_last_visit=10%2f19%2f2020+10%3a05%3a21+PM; _hjid=a2290c23-8ed9-4c8c-a8a8-d9afe8d9435c; _uetvid=2c82c0d0168311ebb9eb5b5a27f3e4db; intercom-id-radn7w0h=fe24cf8e-e08e-482b-8724-b1a216992ef8\",\n  \"Host\": \"performance.dev.paylocity.com\",\n  \"Referer\": \"http://performance.dev.paylocity.com/LoadTests/Spa\",\n  \"User-Agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36\",\n  \"accept\": \"application/json, text/plain, */*\"\n}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 401 - Unauthorized\nHeaders: {\n  \"server\": \"Kestrel\",\n  \"www-authenticate\": \"NTLM, Negotiate\",\n  \"x-powered-by\": \"ASP.NET\",\n  \"date\": \"Thu, 03 Dec 2020 19:18:07 GMT\",\n  \"content-length\": \"0\"\n}\nBody: \n\n\nhttps://on.cypress.io/request\n    at https://dev-loadtest-01.paylocity.com/__cypress/runner/cypress_runner.js:158592:21\n    at tryCatcher (https://dev-loadtest-01.paylocity.com/__cypress/runner/cypress_runner.js:9852:23)\n    at Promise._settlePromiseFromHandler (https://dev-loadtest-01.paylocity.com/__cypress/runner/cypress_runner.js:7787:31)\n    at Promise._settlePromise (https://dev-loadtest-01.paylocity.com/__cypress/runner/cypress_runner.js:7844:18)\n    at Promise._settlePromise0 (https://dev-loadtest-01.paylocity.com/__cypress/runner/cypress_runner.js:7889:10)\n    at Promise._settlePromises (https://dev-loadtest-01.paylocity.com/__cypress/runner/cypress_runner.js:7969:18)\n    at _drainQueueStep (https://dev-loadtest-01.paylocity.com/__cypress/runner/cypress_runner.js:4559:12)\n    at _drainQueue (https://dev-loadtest-01.paylocity.com/__cypress/runner/cypress_runner.js:4552:9)\n    at Async.../../node_modules/bluebird/js/release/async.js.Async._drainQueues (https://dev-loadtest-01.paylocity.com/__cypress/runner/cypress_runner.js:4568:5)\n    at Async.drainQueues (https://dev-loadtest-01.paylocity.com/__cypress/runner/cypress_runner.js:4438:14)\nFrom Your Spec Code:\n    at Context.eval (https://dev-loadtest-01.paylocity.com/__cypress/tests?p=cypress\\integration\\api\\home_page_spec.js:104:8)",
+                "diff": null
+              },
+              "uuid": "dce429fd-8e13-4ecb-bd4a-7f23f8e8d46e",
+              "parentUUID": "8417e92d-c93d-4bd6-a614-fcf004bb3347",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "gets loadmetrics landingpageonly",
+              "fullTitle": "Results gets loadmetrics landingpageonly",
+              "timedOut": null,
+              "duration": 561,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  method: 'GET',\n  url: '/LoadTests/api/loadmetrics?landingPageOnly=true',\n  headers: {\n    'Accept': 'application/json, text/plain, */*',\n    'Accept-Language': 'en-US,en;q=0.9',\n    'Connection': 'keep-alive',\n    'Cookie': '_ga=GA1.2.1333942138.1597685257; optimizelyEndUserId=oeu1598406659852r0.8232592745782337; _fbp=fb.1.1598406660841.827915254; __volmet_last_visit=10%2f19%2f2020+10%3a05%3a21+PM; _hjid=a2290c23-8ed9-4c8c-a8a8-d9afe8d9435c; _uetvid=2c82c0d0168311ebb9eb5b5a27f3e4db; intercom-id-radn7w0h=fe24cf8e-e08e-482b-8724-b1a216992ef8',\n    'Host': 'performance.dev.paylocity.com',\n    'Referer': 'http://performance.dev.paylocity.com/LoadTests/Spa',\n    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36',\n    'Authorization': \"basic \".concat(btoa(\"\".concat(Cypress.env('username'), \":\").concat(Cypress.env('password'))))\n  }\n}).then(function (resp) {\n  expect(resp.status).to.eq(200);\n  expect(resp.headers).to.include({\n    'cache-control': 'no-cache',\n    expires: '-1',\n    'content-type': 'application/json; charset=utf-8'\n  });\n});",
+              "err": {
+                "message": "CypressError: `cy.request()` failed on:\n\nhttps://dev-loadtest-01.paylocity.com/stormbreaker/LoadTests/api/loadmetrics?landingPageOnly=true\n\nThe response we received from your web server was:\n\n  > 401: Unauthorized\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: GET\nURL: https://dev-loadtest-01.paylocity.com/stormbreaker/LoadTests/api/loadmetrics?landingPageOnly=true\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"Accept-Language\": \"en-US,en;q=0.9\",\n  \"Cookie\": \"_ga=GA1.2.1333942138.1597685257; optimizelyEndUserId=oeu1598406659852r0.8232592745782337; _fbp=fb.1.1598406660841.827915254; __volmet_last_visit=10%2f19%2f2020+10%3a05%3a21+PM; _hjid=a2290c23-8ed9-4c8c-a8a8-d9afe8d9435c; _uetvid=2c82c0d0168311ebb9eb5b5a27f3e4db; intercom-id-radn7w0h=fe24cf8e-e08e-482b-8724-b1a216992ef8\",\n  \"Host\": \"performance.dev.paylocity.com\",\n  \"Referer\": \"http://performance.dev.paylocity.com/LoadTests/Spa\",\n  \"User-Agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36\",\n  \"Authorization\": \"basic ZmFraW55ZW1pOlp5Zm9hYmM4OSFzZm9hNjU1OA==\",\n  \"accept\": \"application/json, text/plain, */*\",\n  \"accept-encoding\": \"gzip, deflate\"\n}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 401 - Unauthorized\nHeaders: {\n  \"server\": \"Kestrel\",\n  \"www-authenticate\": \"NTLM, Negotiate\",\n  \"x-powered-by\": \"ASP.NET\",\n  \"date\": \"Thu, 03 Dec 2020 19:18:09 GMT\",\n  \"content-length\": \"0\"\n}\nBody: \n\n\nhttps://on.cypress.io/request",
+                "estack": "CypressError: `cy.request()` failed on:\n\nhttps://dev-loadtest-01.paylocity.com/stormbreaker/LoadTests/api/loadmetrics?landingPageOnly=true\n\nThe response we received from your web server was:\n\n  > 401: Unauthorized\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: GET\nURL: https://dev-loadtest-01.paylocity.com/stormbreaker/LoadTests/api/loadmetrics?landingPageOnly=true\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"Accept-Language\": \"en-US,en;q=0.9\",\n  \"Cookie\": \"_ga=GA1.2.1333942138.1597685257; optimizelyEndUserId=oeu1598406659852r0.8232592745782337; _fbp=fb.1.1598406660841.827915254; __volmet_last_visit=10%2f19%2f2020+10%3a05%3a21+PM; _hjid=a2290c23-8ed9-4c8c-a8a8-d9afe8d9435c; _uetvid=2c82c0d0168311ebb9eb5b5a27f3e4db; intercom-id-radn7w0h=fe24cf8e-e08e-482b-8724-b1a216992ef8\",\n  \"Host\": \"performance.dev.paylocity.com\",\n  \"Referer\": \"http://performance.dev.paylocity.com/LoadTests/Spa\",\n  \"User-Agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36\",\n  \"Authorization\": \"basic ZmFraW55ZW1pOlp5Zm9hYmM4OSFzZm9hNjU1OA==\",\n  \"accept\": \"application/json, text/plain, */*\",\n  \"accept-encoding\": \"gzip, deflate\"\n}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 401 - Unauthorized\nHeaders: {\n  \"server\": \"Kestrel\",\n  \"www-authenticate\": \"NTLM, Negotiate\",\n  \"x-powered-by\": \"ASP.NET\",\n  \"date\": \"Thu, 03 Dec 2020 19:18:09 GMT\",\n  \"content-length\": \"0\"\n}\nBody: \n\n\nhttps://on.cypress.io/request\n    at https://dev-loadtest-01.paylocity.com/__cypress/runner/cypress_runner.js:158592:21\n    at tryCatcher (https://dev-loadtest-01.paylocity.com/__cypress/runner/cypress_runner.js:9852:23)\n    at Promise._settlePromiseFromHandler (https://dev-loadtest-01.paylocity.com/__cypress/runner/cypress_runner.js:7787:31)\n    at Promise._settlePromise (https://dev-loadtest-01.paylocity.com/__cypress/runner/cypress_runner.js:7844:18)\n    at Promise._settlePromise0 (https://dev-loadtest-01.paylocity.com/__cypress/runner/cypress_runner.js:7889:10)\n    at Promise._settlePromises (https://dev-loadtest-01.paylocity.com/__cypress/runner/cypress_runner.js:7969:18)\n    at _drainQueueStep (https://dev-loadtest-01.paylocity.com/__cypress/runner/cypress_runner.js:4559:12)\n    at _drainQueue (https://dev-loadtest-01.paylocity.com/__cypress/runner/cypress_runner.js:4552:9)\n    at Async.../../node_modules/bluebird/js/release/async.js.Async._drainQueues (https://dev-loadtest-01.paylocity.com/__cypress/runner/cypress_runner.js:4568:5)\n    at Async.drainQueues (https://dev-loadtest-01.paylocity.com/__cypress/runner/cypress_runner.js:4438:14)\nFrom Your Spec Code:\n    at Context.eval (https://dev-loadtest-01.paylocity.com/__cypress/tests?p=cypress\\integration\\api\\home_page_spec.js:155:8)",
+                "diff": null
+              },
+              "uuid": "1190f00f-10a3-4e34-9986-374808ea0d49",
+              "parentUUID": "8417e92d-c93d-4bd6-a614-fcf004bb3347",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "dce429fd-8e13-4ecb-bd4a-7f23f8e8d46e",
+            "1190f00f-10a3-4e34-9986-374808ea0d49"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 1109,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": true,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.2.1"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/reports/mocha",
+        "quiet": true,
+        "html": true,
+        "json": true
+      },
+      "version": "5.1.0"
+    }
+  }
+}

@@ -7,7 +7,7 @@ describe('Results', () => {
     
       cy.request({
          method:'GET',
-         url:'/LoadTests/api/results',
+         url:'http://performance.dev.paylocity.com/LoadTests/api/results',
          headers: {
             'Accept': 'application/json, text/plain, */*',
             'Accept-Encoding': 'gzip,deflate',
@@ -71,7 +71,7 @@ describe('Results', () => {
     
       cy.request({
          method:'GET',
-         url:'/LoadTests/api/loadmetrics?landingPageOnly=true',
+         url:'http://performance.dev.paylocity.com/LoadTests/api/loadmetrics?landingPageOnly=true',
          headers: {
             'Accept': 'application/json, text/plain, */*',
             'Accept-Language': 'en-US,en;q=0.9',

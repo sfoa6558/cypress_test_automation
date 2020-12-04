@@ -1,7 +1,5 @@
 describe('Stormbreaker Heartbeat', () => {
-   beforeEach(() => {
-      cy.ntlm([Cypress.env('stormbreaker-local')], Cypress.env('username'), Cypress.env('password'));
-  })  
+   
  it('checks the heartbeat', () => {   
     cy.request({
        method:'GET',

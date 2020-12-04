@@ -6,7 +6,7 @@ describe('Environments', () => {
  it('gets load test environments', () => {   
     cy.request({
        method:'GET',
-       url:'/LoadTests/api/environments',
+       url:'http://performance.dev.paylocity.com/LoadTests/api/environments',
        headers: {
           'Accept': 'application/json, text/plain, */*',
           'Accept-Encoding': 'gzip,deflate',
