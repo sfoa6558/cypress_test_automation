@@ -40,7 +40,7 @@
     "babel-preset-env": "1.7.0",
     "babel-preset-react": "6.24.1",
     "css-loader": "0.28.11",
-    "cypress": "^5.0.0",
+    "cypress": "^6.2.0",
     "cypress-ntlm-auth": "^2.3.0",
     "html-webpack-plugin": "2.30.1",
     "mochawesome": "^6.2.1",
