@@ -1,3 +1,5 @@
+import 'cypress-file-upload';
+
 Cypress.Commands.add("login", (url) => {
     
     cy.request({
@@ -9,8 +11,16 @@ Cypress.Commands.add("login", (url) => {
       },
       method: 'GET'
     })
+    
+   
   
   })
 
-  
+  Cypress.Commands.add("iterateOperationAllEnvs", (envs,method) => {
+    for(let i=0; i<envs.length; i++)
+    {
+      method(envs[i]);
+    }
+  })
+
     
