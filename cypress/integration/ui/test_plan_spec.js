@@ -13,38 +13,35 @@ describe('Test Plan', () => {
   before(() => {
       cy.ntlm([Cypress.env('stormbreaker-dev')], Cypress.env('username'), Cypress.env('password'));
       cy.visit("/");
-      
+      new TestResult().getTestManagement().click();
+      cy.get('div.app-wrapper.ng-scope > div > h2').should('contain', 'Test Management');
       
   }) 
-
-  it('clicks on test management', () => {
-      new TestResult().getTestManagement().click();
-      cy.get('div.app-wrapper.ng-scope > div > h2').should('contain', 'Test Management'); 
-   })
+  
  
    it('adds test plans in all envs', () => {
-      new TestPlan().iterateOperationAllEnvs(['Tin','Bronze'],new TestPlan().addTestPlan);
+      cy.iterateOperationAllEnvs(['Tin','Bronze'],new TestPlan().addTestPlan);
       //deleting all test plans as cleanup and technically also a test
-      new TestPlan().iterateOperationAllEnvs(['Tin','Bronze'], new TestPlan().deleteTestPlan);
+      cy.iterateOperationAllEnvs(['Tin','Bronze'], new TestPlan().deleteTestPlan);
 
    })
   
    
 
    it('edits test plans in all envs', () => {
-    new TestPlan().iterateOperationAllEnvs(['Tin','Bronze'],new TestPlan().addTestPlan);
-    new TestPlan().iterateOperationAllEnvs(['Tin','Bronze'], new TestPlan().editTestPlan);
-    new TestPlan().iterateOperationAllEnvs(['Tin','Bronze'], new TestPlan().deleteTestPlan);
+      cy.iterateOperationAllEnvs(['Tin','Bronze'],new TestPlan().addTestPlan);
+      cy.iterateOperationAllEnvs(['Tin','Bronze'], new TestPlan().editTestPlan);
+      cy.iterateOperationAllEnvs(['Tin','Bronze'], new TestPlan().deleteTestPlan);
      
   })
   
   
   it('executes test plans in all envs', () => {
-    new TestPlan().iterateOperationAllEnvs(['Tin','Bronze'], new TestPlan().executeTestPlan);
+      cy.iterateOperationAllEnvs(['Tin','Bronze'], new TestPlan().executeTestPlan);
   })
 
   it('searches test plans in all envs', () => {
-    new TestPlan().iterateOperationAllEnvs(['Tin','Bronze'], new TestPlan().searchTestPlan);
+      cy.iterateOperationAllEnvs(['Tin','Bronze'], new TestPlan().searchTestPlan);
   })
  /*
   it('downloads a test plan', () =>  {
@@ -55,10 +52,10 @@ describe('Test Plan', () => {
 
  */
   it('add a test plan without choosing a test file', () => {
-    new TestPlan().getAddTestPlan().click();
-    new TestPlan().getSubmitButton().click();
-    new TestPlan().getTestPlanError().contains("A Test Plan must be provided!");
-    new TestPlan().getCancelButton().click({force:true});
+     new TestPlan().getAddTestPlan().click();
+     new TestPlan().getSubmitButton().click();
+     new TestPlan().getTestPlanError().contains("A Test Plan must be provided!");
+     new TestPlan().getCancelButton().click({force:true});
   })
 
   it('add a test plan without choosing a test type', () => {

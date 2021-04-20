@@ -30,7 +30,7 @@ class TestPlan
    
  
 
-   getLoadTestTableSecondColumn()
+   getTestPlanTableSecondColumn()
    {
       return cy.get('table[data-automation-id="lt-tests-table"] > tbody > tr td:nth-child(2)');
    }
@@ -102,21 +102,12 @@ class TestPlan
       return cy.get('.banner-message.ng-scope.error > p > span');
    }
 
-   iterateOperationAllEnvs(envs,method)
-   {
-       
-       for(let i=0; i<envs.length; i++)
-       {
-         method(envs[i]);
-       }
-
-   }
-
+  
    deleteTestPlan(env)
    {
       const testplan = new TestPlan();
       cy.get(`a[data-automation-id="${env}-subtab"]`).click();
-      testplan.getLoadTestTableSecondColumn().each(($e, index) => {
+      testplan.getTestPlanTableSecondColumn().each(($e, index) => {
          const text = $e.text();
          if(text.trim() == "CypressAutoTest")
          {
@@ -150,6 +141,7 @@ class TestPlan
         .find('tr')
         .should('contain', 'CypressAutoTest')
         .should('contain','true')
+        .should('contain','Smoke Test')
     
    }
  
@@ -175,6 +167,13 @@ class TestPlan
       testplan.getTestPlanName().type('CypressAutoTest');
       testplan.getTestType().select('Smoke Test');
       testplan.getSubmitButton().click({force:true});
+
+      testplan.getLoadTestTable()
+        .find('tr')
+        .should('contain', 'CypressAutoTestEdited')
+        .should('contain','true')
+        .should('contain','Regression Test')
+
     
    }
   
@@ -183,7 +182,7 @@ class TestPlan
    {
       const testplan = new TestPlan();
       cy.get(`a[data-automation-id="${env}-subtab"]`).click();
-      testplan.getLoadTestTableSecondColumn().each(($e, index) => {
+      testplan.getTestPlanTableSecondColumn().each(($e, index) => {
          const text = $e.text();
          if(text.trim() == "CypressAutoTest")
          {
@@ -202,7 +201,7 @@ class TestPlan
    {
       const testplan = new TestPlan();
       cy.get(`a[data-automation-id="${env}-subtab"]`).click();
-      testplan.getLoadTestTableSecondColumn().each(($e, index) => {
+      testplan.getTestPlanTableSecondColumn().each(($e, index) => {
          const text = $e.text();
          if(text.trim() == "CypressAutoTest")
          {
@@ -225,26 +224,27 @@ class TestPlan
       const testplan = new TestPlan();
       cy.get(`a[data-automation-id="${env}-subtab"]`).click();
       
-      cy.get('input[data-automation-id="lt-tests-searchbox"]').type("CypressAutoTest");
+      testplan.getSearchBox().type("CypressAutoTest");
       
       testplan.getSearchResult().should('contain',"CypressAutoTest");
       
-      cy.get('input[data-automation-id="lt-tests-searchbox"]').clear();
+      testplan.getSearchBox().clear();
       
-      cy.get('input[data-automation-id="lt-tests-searchbox"]').type("Search");
+      testplan.getSearchBox().type("Search");
 
       testplan.getNoRecords().should('contain',"No Records Found")
 
-      cy.get('input[data-automation-id="lt-tests-searchbox"]').clear();
+      testplan.getSearchBox().clear();
    }
 
 
 
    clickEdit(test)
    {
-      this.getLoadTestTableSecondColumn().each(($e, index) => {
+      const testplan = new TestPlan();
+      testplan.getTestPlanTableSecondColumn().each(($e, index) => {
          let text = $e.text();
-         if(text.trim().includes("CypressAutoTest"))
+         if(text.trim().includes(test))
          {
             cy.get(`table[data-automation-id="lt-tests-table"] > tbody > tr:nth-child(${index+1}) > td:nth-child(4) > div > div > a:nth-child(3)`).click({force:true});
          }
