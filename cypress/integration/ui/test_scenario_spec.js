@@ -1,6 +1,6 @@
 import TestScenario from '../../pages/TestScenario';
 import TestResult   from '../../pages/TestResult'
-describe('Test Result', () => {
+describe('Test Scenario', () => {
   Cypress.on('uncaught:exception', (err, runnable) => {
     // returning false here prevents Cypress from
     // failing the test
