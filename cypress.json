@@ -3,8 +3,7 @@
     "baseUrl": "https://dev-loadtest-01.paylocity.com/stormbreaker/spa",
     "env": {
        
-        "username": "",
-        "password": "",
+       
         "dev":      "performance.dev.paylocity.com",
         "api":      "performance.dev.paylocity.com/LoadTests/api/results",
         "stormbreaker-local": "localhost:5001",
