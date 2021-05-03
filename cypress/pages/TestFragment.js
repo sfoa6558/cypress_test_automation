@@ -39,8 +39,6 @@ class TestFragment
       return cy.get('citrus-modal.ng-scope.ng-isolate-scope.modal-open > div > div > div > div.modal-footer > button:nth-child(1)')
    }
    
-
-
    getCancelButton()
    {
       return cy.get('citrus-modal.ng-scope.ng-isolate-scope.modal-open div.modal-footer > button:nth-child(2)')
@@ -91,10 +89,10 @@ class TestFragment
    {
       const testfragment = new TestFragment();
       cy.get(`a[data-automation-id="${env}-subtab"]`).click();
-      testfragment.getTestFragmentSearchBox().type('CypressAutoTestFragment');  
+      testfragment.getTestFragmentSearchBox().type('CypressTestFragment');  
       testfragment.getTestFragmentTableThirdColumn().each(($e, index) => {
          const text = $e.text();
-         if(text.trim() == "CypressAutoTestFragment")
+         if(text.trim() == "CypressTestFragment")
          {
             
             cy.get(`table[data-automation-id="testFragments-table"] > tbody > tr td:nth-child(7) > div > div > a:nth-child(3)`).first().click();
@@ -106,7 +104,7 @@ class TestFragment
       testfragment.getSubmitButton().first().click();
       testfragment.getTestFragmentTable()
       .find('tr')
-      .should('contain', 'CypressAutoTestFragment')
+      .should('contain', 'CypressTestFragment')
       .should('contain','Data Transfer')
       .should('contain','Group')
       .should('contain', 'false')
@@ -121,7 +119,7 @@ class TestFragment
       testfragment.getAddTestFragment().click();
      
       cy.get('[id=testFragmentFileData]')
-      .attachFile('CypressAutoTestFragment.jmx');
+      .attachFile('CypressTestFragment.jmx');
   
       testfragment.getAddDomain().select('Data Transfer');
       
@@ -129,11 +127,11 @@ class TestFragment
   
       testfragment.getSubmitButton().click();
     
-      testfragment.getTestFragmentSearchBox().type('CypressAutoTestFragment');  
+      testfragment.getTestFragmentSearchBox().type('CypressTestFragment');  
 
       testfragment.getTestFragmentTable()
       .find('tr')
-      .should('contain', 'CypressAutoTestFragment')
+      .should('contain', 'CypressTestFragment')
       .should('contain','Data Transfer')
       .should('contain','Group')
 
@@ -147,18 +145,18 @@ class TestFragment
    {
       const testfragment = new TestFragment();
       cy.get(`a[data-automation-id="${env}-subtab"]`).click();
-      testfragment.clickEdit("CypressAutoTestFragment");
+      testfragment.clickEdit("CypressTestFragment");
       testfragment.getTestFragmentName().clear();
-      testfragment.getTestFragmentName().type('NameEdited');
-      testfragment.getEditDomain().select('Expense');
+      testfragment.getTestFragmentName().type('NameEdit');
+      testfragment.getEditDomain().select('Documents');
       testfragment.getEditSecurityGroup().clear();
-      testfragment.getEditSecurityGroup().type('FolderEdited'); 
+      testfragment.getEditSecurityGroup().type('FolderEdit'); 
       testfragment.getCancelButton().click();
 
       
       testfragment.getTestFragmentTable()
       .find('tr')
-      .should('contain', 'CypressAutoTestFragment')
+      .should('contain', 'CypressTestFragment')
       .should('contain','Data Transfer')
       .should('contain','Group')
    }
@@ -167,39 +165,39 @@ class TestFragment
    {
       const testfragment = new TestFragment();
       cy.get(`a[data-automation-id="${env}-subtab"]`).click();
-      testfragment.clickEdit("CypressAutoTestFragment");
+      testfragment.clickEdit("CypressTestFragment");
       testfragment.getTestFragmentName().clear();
-      testfragment.getTestFragmentName().type('NameEdited');
-      testfragment.getEditDomain().select('Expense');
+      testfragment.getTestFragmentName().type('NameEdit');
+      testfragment.getEditDomain().select('Documents');
       testfragment.getEditSecurityGroup().clear();
-      testfragment.getEditSecurityGroup().type('FolderEdited'); 
+      testfragment.getEditSecurityGroup().type('FolderEdit'); 
       testfragment.getSubmitButton().click({force:true});
       
       testfragment.getTestFragmentSearchBox().clear();
-      testfragment.getTestFragmentSearchBox().type('NameEdited');
+      testfragment.getTestFragmentSearchBox().type('NameEdit');
       
       testfragment.getTestFragmentTable()
       .find('tr')
-      .should('contain', 'NameEdited')
-      .should('contain','Expense')
-      .should('contain','FolderEdited')
+      .should('contain', 'NameEdit')
+      .should('contain','Documents')
+      .should('contain','FolderEdit')
 
        
-      testfragment.clickEdit("NameEdited");
+      testfragment.clickEdit("NameEdit");
       testfragment.getTestFragmentName().clear();
-      testfragment.getTestFragmentName().type('CypressAutoTestFragment');
+      testfragment.getTestFragmentName().type('CypressTestFragment');
       testfragment.getEditDomain().select('Data Transfer');
       testfragment.getEditSecurityGroup().clear();
       testfragment.getEditSecurityGroup().type('Group');
       testfragment.getSubmitButton().click({force:true});
 
       testfragment.getTestFragmentSearchBox().clear();
-      testfragment.getTestFragmentSearchBox().type('CypressAutoTestFragment');
+      testfragment.getTestFragmentSearchBox().type('CypressTestFragment');
 
 
       testfragment.getTestFragmentTable()
         .find('tr')
-        .should('contain', 'CypressAutoTestFragment')
+        .should('contain', 'CypressTestFragment')
         .should('contain','Data Transfer')
         .should('contain','Group')
 

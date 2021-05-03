@@ -16,13 +16,14 @@ describe('Users', () => {
      
        body: {
          environment: 'Bronze',
-         application: 'WebLink'
+       
        }
        
        
     })
       .then((resp) => {
          expect(resp.status).to.eq(200)
+         expect(resp.body).to.eq(200)
           resp.body.forEach((body,index) =>
           {
             expect(resp.body[index]).to.have.property('userId');

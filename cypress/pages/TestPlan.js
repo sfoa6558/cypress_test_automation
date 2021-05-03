@@ -1,7 +1,10 @@
 class TestPlan
 {
    
-   
+   getTestPlanTab()
+   {
+      return cy.get('a[data-automation-id="tm-testPlans-tab"]');
+   }
    
    getAddTestPlan()
    {
@@ -149,7 +152,7 @@ class TestPlan
    {
       const testplan = new TestPlan();
       cy.get(`a[data-automation-id="${env}-subtab"]`).click();
-      testplan.clickEdit("CypressAutoTest");
+      testplan.edit("CypressAutoTest");
       testplan.getTestPlanName().clear();
       testplan.getTestPlanName().type('CypressAutoTestEdited');
       testplan.getTestType().select('Regression Test');
@@ -162,7 +165,7 @@ class TestPlan
         .should('contain','Regression Test')
 
        
-      testplan.clickEdit("CypressAutoTestEdited");
+      testplan.edit("CypressAutoTestEdited");
       testplan.getTestPlanName().clear();
       testplan.getTestPlanName().type('CypressAutoTest');
       testplan.getTestType().select('Smoke Test');
@@ -237,9 +240,9 @@ class TestPlan
       testplan.getSearchBox().clear();
    }
 
+   
 
-
-   clickEdit(test)
+   edit(test)
    {
       const testplan = new TestPlan();
       testplan.getTestPlanTableSecondColumn().each(($e, index) => {
@@ -251,6 +254,7 @@ class TestPlan
         })
    }
 
+   
 
 }
 

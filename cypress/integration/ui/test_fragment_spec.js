@@ -16,7 +16,7 @@ describe('Test Fragment', () => {
       
       
   }) 
-  
+  /*
   it('adds test fragments in all envs', () => {
     cy.iterateOperationAllEnvs(['Tin','Bronze'], new TestFragment().addTestFragment);
     cy.iterateOperationAllEnvs(['Tin','Bronze'], new TestFragment().deleteTestFragment);
@@ -31,21 +31,21 @@ describe('Test Fragment', () => {
     cy.iterateOperationAllEnvs(['Tin','Bronze'], new TestFragment().cancelTestFragment);
    
    })
-
+  */
    it('searches test fragments with a term that should give no results', () => {
     cy.iterateOperationAllEnvs(['Tin','Bronze'], new TestFragment().searchTestFragmentNegative);
    })
-
+   /*
    it('adds a test fragment without a security group', () => {
     const testfragment = new TestFragment();
     testfragment.getAddTestFragment().click();
     cy.get('[id=testFragmentFileData]')
-    .attachFile('CypressAutoTestFragment.jmx');
+    .attachFile('CypressTestFragment.jmx');
     testfragment.getAddDomain().select('Data Transfer');
     testfragment.getSubmitButton().click();
     testfragment.getTestFragmentTable()
     .find('tr')
-    .should('contain', 'CypressAutoTestFragment')
+    .should('contain', 'CypressTestFragment')
     .should('contain','Data Transfer')
     .should('contain','')
    })
@@ -63,7 +63,7 @@ describe('Test Fragment', () => {
     const testfragment = new TestFragment();
     testfragment.getAddTestFragment().click();
     cy.get('[id=testFragmentFileData]')
-    .attachFile('CypressAutoTestFragment.jmx');
+    .attachFile('CypressTestFragment.jmx');
     testfragment.getAddSecurityGroup().type('Group'); 
     testfragment.getSubmitButton().click();
     testfragment.getTestFragmentError().contains("A Test Fragment Domain must be provided!");

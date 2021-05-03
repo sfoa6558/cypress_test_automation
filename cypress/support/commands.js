@@ -23,4 +23,14 @@ Cypress.Commands.add("login", (url) => {
     }
   })
 
+  Cypress.Commands.add('downloadDocx', (url, directory) => {
+    return cy.getCookies().then(cookies => {
+        return cy.task('downloadDocx', {url: url, directory: directory, cookies: cookies });
+    });
+});
+
+  Cypress.Commands.add('isExistDocx', () => {
+    cy.task('isExistDocx');
+});
+
     
